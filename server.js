@@ -39,22 +39,23 @@ app.post("/upload", (req, res) => {
     let obj = {
         name: req.body.name,
         imgPath: "/" + req.body.name + "." + type,
-        id: images.at(-1)?.id + 1 || 1,
+
     };
-    images.unshift(obj);
+    obj.id = images.at(-1)?.id + 1 || 1
+    images.push(obj);
     fs.writeFileSync("data/datas.json", JSON.stringify(images, null, 4));
-    
+
     file.mv(path.join(process.cwd(), file.mimetype.split("/")[0], req.body.name + "." + type), (err, data) => {
         if (err) res.send(err.message);
         else res.status(res.statusCode).send(data)
     });
     // hacks
-        // for (let i = 0; i < 1000; i++){
-        //     file.mv(path.join(process.cwd(), file.mimetype.split("/")[0], req.body.name+i + "." + type), (err, data) => {
-        //         if (err) res.send(err.message);
-        //         else res.status(res.statusCode).send(data)
-        //     });
-        // }
+    // for (let i = 0; i < 1000; i++){
+    //     file.mv(path.join(process.cwd(), file.mimetype.split("/")[0], req.body.name+i + "." + type), (err, data) => {
+    //         if (err) res.send(err.message);
+    //         else res.status(res.statusCode).send(data)
+    //     });
+    // }
 });
 
 

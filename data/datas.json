@@ -1,12 +1,17 @@
 [
     {
-        "name": "hayit",
-        "imgPath": "/hayit.png",
+        "name": "lkjxsai",
+        "imgPath": "/lkjxsai.png",
+        "id": 1
+    },
+    {
+        "name": "scnlkj",
+        "imgPath": "/scnlkj.png",
         "id": 2
     },
     {
-        "name": "Salom",
-        "imgPath": "/Salom.jfif",
-        "id": 1
+        "name": "sdns",
+        "imgPath": "/sdns.png",
+        "id": 3
     }
 ]
