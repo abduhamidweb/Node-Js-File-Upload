@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="FormName" placeholder="text">
+    <input type="file" id="FormFile" placeholder="file">
+    <button id="btn" type="button">Submit</button>
+<% for(let img of images){ %>
+        <div>
+            <img width="300" src="<%=img.imgPath  %>" alt="<%=img.imgPath %>">
+            <a href="/download/image<%=img.imgPath  %>">download</a>
+        </div>
+<% } %>
+    <script>
+        btn.onclick = async () => {
+            let formData = new FormData();
+            console.log(FormFile.files[0]);
+            if (FormName.value && FormFile.files.length) {
+                formData.append("image", FormFile.files[0])
+                formData.append("name", FormName.value);
+                fetch("http://localhost:3000/upload", {
+                    method: "POST",
+                    body: formData,
+                })
+            }
+        window.location = "/";
+        }
+    </script>
+</body>
+
+</html>
