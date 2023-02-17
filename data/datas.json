@@ -1,6 +1,12 @@
 [
     {
-        "name": "saxsxsa",
-        "imgPath": "/saxsxsa.png"
+        "name": "hayit",
+        "imgPath": "/hayit.png",
+        "id": 2
+    },
+    {
+        "name": "Salom",
+        "imgPath": "/Salom.jfif",
+        "id": 1
     }
 ]

@@ -38,7 +38,8 @@ app.post("/upload", (req, res) => {
     let type = types[types.length - 1];
     let obj = {
         name: req.body.name,
-        imgPath: "/" + req.body.name + "." + type
+        imgPath: "/" + req.body.name + "." + type,
+        id: images.at(-1)?.id + 1 || 1,
     };
     images.unshift(obj);
     fs.writeFileSync("data/datas.json", JSON.stringify(images, null, 4));
