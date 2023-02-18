@@ -5,13 +5,13 @@
         "id": 1
     },
     {
-        "name": "scnlkj",
-        "imgPath": "/scnlkj.png",
-        "id": 2
-    },
-    {
         "name": "sdns",
         "imgPath": "/sdns.png",
         "id": 3
+    },
+    {
+        "name": "Salom",
+        "imgPath": "/Salom.jfif",
+        "id": 4
     }
 ]

@@ -5,19 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 
 <body>
-    <input type="text" id="FormName" placeholder="text">
-    <input type="file" id="FormFile" placeholder="file">
-    <button id="btn" type="button">Submit</button>
-<% for(let img of images){ %>
-        <div>
-            <img width="300" src="<%=img.imgPath  %>" alt="<%=img.imgPath %>">
-            <a href="/download/image<%=img.imgPath  %>">download</a>
+    <div class="form-control w-75 mx-auto p-5 mt-5 mb-5">
+        <input type="text" id="FormName" class="form-control mb-3" placeholder="text">
+        <input type="file" id="FormFile" placeholder="file" class="form-control mb-3">
+        <button id="btn" type="button" class="btn btn-primary w-100 mt-3">Submit</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <% for(let img of images){ %>
+                <div class="col-lg-4 mt-5">
+                    <img class="img-fluid" src="<%=img.imgPath  %>" alt="<%=img.imgPath %>">
+                    <a href="/download/image<%=img.imgPath  %>" class=" w-100 mt-3 btn btn-danger">download</a>
+                    <form class="form-control mt-3 p-3">
+                        <input type="text" placeholder="Edit img name id:<%=img.id  %>" class="form-control p-2">
+                        <button class="btn-primary btn  mt-3 w-100">submit</button>
+                    </form>
+                </div>
+                <% } %>
         </div>
-<% } %>
+    </div>
+
     <script>
         btn.onclick = async () => {
             let formData = new FormData();
@@ -30,9 +47,11 @@
                     body: formData,
                 })
             }
-        window.location = "/";
+            window.location = "/";
         }
     </script>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 </body>
 
 </html>
