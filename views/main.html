@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,19 +23,40 @@
     <div class="container">
         <div class="row">
             <% for(let img of images){ %>
-                <div class="col-lg-4 mt-5">
-                    <img class="img-fluid" src="<%=img.imgPath  %>" alt="<%=img.imgPath %>">
-                    <a href="/download/image<%=img.imgPath  %>" class=" w-100 mt-3 btn btn-danger">download</a>
-                    <form class="form-control mt-3 p-3">
-                        <input type="text" placeholder="Edit img name id:<%=img.id  %>" class="form-control p-2">
-                        <button class="btn-primary btn  mt-3 w-100">submit</button>
-                    </form>
+                <div class="col-lg-4 mb-5 ">
+                    <div class="form-control py-4   ">
+                        <img class="img-fluid" src="<%=img.imgPath  %>" alt="<%=img.imgPath %>">
+                        <a href="/download/image<%=img.imgPath  %>" class=" w-100 mt-3 btn btn-danger">download</a>
+                        <h5 class="card-title px-2 py-3">
+                            <strong>Image name:</strong><span class="fs-5 ms-2">
+                                <%=img.name %>
+                            </span>
+                        </h5>
+                        <div class="form-control mt-3 p-3">
+                            <input type="text" placeholder="Edit img name id:<%=img.id  %>" class="form-control p-2"
+                                id="editInput" data-input="<%=img.id %>">
+                            <button class="btn-primary btn  mt-3 w-100" id="edit" type="button"
+                                data-id="<%=img.id  %>">submit</button>
+                        </div>
+                    </div>
                 </div>
                 <% } %>
         </div>
     </div>
-
     <script>
+        let btns = document.querySelectorAll("#edit");
+        let editInput = document.querySelectorAll("#editInput");
+        btns.forEach(btn => {
+            btn.onclick = async (e) => {
+                editInput.forEach(edit => {
+                    if (e.target.getAttribute("data-id") == edit.getAttribute("data-input")) {
+                        if (edit.value.length > 0) {
+
+                        }
+                    }
+                })
+            }
+        })
         btn.onclick = async () => {
             let formData = new FormData();
             console.log(FormFile.files[0]);
